@@ -57,8 +57,8 @@ Clear-Variable -name note
 #Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish
 while (1) 
   {
-    read-host | set r
-    set note -value ($note+"`n"+$r)
+    read-host | Set-Variable r
+    Set-Variable note -value ($note+"`n"+$r)
     if (!$r) {break}
   }
 $note = $note.trim()
