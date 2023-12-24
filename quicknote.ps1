@@ -24,8 +24,8 @@ $filepath = Join-Path $MMMsubfolder $filename
 ######################
 #Define Note Entry Template
 $time = $date.ToString("hh:mm:ss tt K")
-$notel2 = "----------------------------------"
-$notel3 = "### Note Time $time"
+$notel2 = "---  `n  ### $time `n"
+#$notel3 = "### Note Time $time"
 #######################
 
 #Notes will be sorted by Year/Month/ 
@@ -50,18 +50,22 @@ if (!(Test-Path $MMMsubfolder))
 #Check for Todays Text File and Create if it doesn't exist
 if (!(Test-Path $filepath))
 {
-    New-Item -Path $MMMsubfolder -Name $filename -ItemType "file" -Value "# New Notes Started $date"
+    New-Item -Path $MMMsubfolder -Name $filename -ItemType "file" -Value "# Notes For $filedate"
     Write-Host "Created Notes File for Today"
 }
-Clear-Variable -name note
-#Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish
+
+Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish"
 while (1) 
   {
     read-host | Set-Variable r
-    Set-Variable note -value ($note+"`n"+$r)
+    Set-Variable note -value ($note+"`n"+$r+"  ")
     if (!$r) {break}
   }
 $note = $note.trim()
-
-$wholenote = "`n", $notel2, $notel3, $note
-Add-Content -Path $filepath -Value $wholenote
+if (!($note))
+  {
+    exit
+  } else {
+        $wholenote = $notel2, $note
+        Add-Content -Path $filepath -Value $wholenote
+  }
