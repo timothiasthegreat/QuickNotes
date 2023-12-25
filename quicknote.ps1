@@ -4,8 +4,7 @@
 
 #Variables Section
 #Edit this variable to point to the folder you are storing notes.  The folder must exist and your user account must have write permissions or the script will error.
-
-###STORE IN DOCUMENTS FOLDER?  ADJUST VARIABLE TO FIND DOCS REGARDLESS OF REDIRECTION https://stackoverflow.com/questions/24771455/getting-the-users-documents-folder-in-powershell
+#Initial configuration creates a QuickNotes folder in you Documents Library
 $cfgdDocuments = [Environment]::GetFolderPath("MyDocuments")
 $notesfolder = "$cfgdDocuments\QuickNotes\"
 
