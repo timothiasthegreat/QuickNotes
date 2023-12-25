@@ -21,20 +21,8 @@ $filedate = $date.ToString("yyyy_MM_dd")
 $filename = "$filedate.md"
 $filepath = Join-Path $MMMsubfolder $filename
 
-#Notes will be sorted by Year/Month/ 
-#Check for Base Folder and create if it doesn't exist
-if (!(Test-Path $notesfolder))
-    {
-        mkdir $notesfolder | Out-Null
-        Write-Host "Created Notes Storage Folder at $notesfolder"
-    }
-#Check for Year Folder and create if it doesn't exist
-    if (!(Test-Path $yysubfolder))
-    {
-        mkdir $yysubfolder | Out-Null
-        Write-Host "Created Folder $yysubfolder"
-    }
-#Check for Month Folder and create if it doesn't exist
+#Notes will be sorted by Year\Month\ 
+#Check for QuickNotes\yyyy\MMM\ Folder and create if it doesn't exist
 if (!(Test-Path $MMMsubfolder))
 {
     mkdir $MMMsubfolder | Out-Null
