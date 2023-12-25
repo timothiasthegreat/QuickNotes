@@ -6,7 +6,8 @@
 #Edit this variable to point to the folder you are storing notes.  The folder must exist and your user account must have write permissions or the script will error.
 
 ###STORE IN DOCUMENTS FOLDER?  ADJUST VARIABLE TO FIND DOCS REGARDLESS OF REDIRECTION https://stackoverflow.com/questions/24771455/getting-the-users-documents-folder-in-powershell
-$notesfolder = "$env:USERPROFILE\Documents\Notes\"
+$cfgdDocuments = [Environment]::GetFolderPath("MyDocuments")
+$notesfolder = "$cfgdDocuments\QuickNotes\"
 
 #Do not Adjust
 $date = Get-Date
@@ -32,29 +33,29 @@ $notel2 = "---  `n  ### $time `n"
 #Check for Base Folder and create if it doesn't exist
 if (!(Test-Path $notesfolder))
     {
-        mkdir $notesfolder
-        Write-Host "Created Notes Storage Folder"
+        mkdir $notesfolder | Out-Null
+        Write-Host "Created Notes Storage Folder at $notesfolder"
     }
 #Check for Year Folder and create if it doesn't exist
     if (!(Test-Path $yysubfolder))
     {
-        mkdir $yysubfolder
+        mkdir $yysubfolder | Out-Null
         Write-Host "Created Folder $yysubfolder"
     }
 #Check for Month Folder and create if it doesn't exist
 if (!(Test-Path $MMMsubfolder))
 {
-    mkdir $MMMsubfolder
+    mkdir $MMMsubfolder | Out-Null
     Write-Host "Created Folder $MMMsubfolder"
 }
 #Check for Todays Text File and Create if it doesn't exist
 if (!(Test-Path $filepath))
 {
-    New-Item -Path $MMMsubfolder -Name $filename -ItemType "file" -Value "# Notes For $filedate"
+    New-Item -Path $MMMsubfolder -Name $filename -ItemType "file" -Value "# Notes For $filedate" | Out-Null
     Write-Host "Created Notes File for Today"
 }
 
-Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish"
+Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish" -ForegroundColor Green
 while (1) 
   {
     read-host | Set-Variable r
