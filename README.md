@@ -28,7 +28,7 @@ QuickNotes is a simple and convenient way to keep track of your daily tasks, tho
 ## Example
 **Powershell:**
 ```
-PS C:\Users\TimothyMcBride> powershell -ExecutionPolicy Bypass -File ("c:\Users\USERNAME\Git\QuickNotes\quicknote.ps1")
+PS C:\Users\> powershell -ExecutionPolicy Bypass -File ("c:\Users\USERNAME\Git\QuickNotes\quicknote.ps1")
 Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Sed quis leo vitae magna tincidunt sagittis.
