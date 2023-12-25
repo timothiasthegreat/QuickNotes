@@ -13,6 +13,10 @@ QuickNotes is a simple and convenient way to keep track of your daily tasks, tho
 - Uses Markdown syntax for formatting notes
 - Sorts notes by year and month in a subfolder structure
 
+## Roadmap
+
+I want build or find a parsing engine to allow notes to be indexed on a calendar and tree menu, with individual entry lookup.  Ideally this would inlcude keyword search and common word extraction for finding notes, topics, themes, and statistics.
+
 ## How to use
 
 - Download or clone this repository to your local machine
