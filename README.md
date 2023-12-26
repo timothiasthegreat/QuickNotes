@@ -25,7 +25,7 @@ I want build or find a parsing engine to allow notes to be indexed on a calendar
 - Run the script in PowerShell using `powershell -ExecutionPolicy Bypass -File ("PATHTOSCRIPT\QUICKNOTE.PS1")`
     - **Use AutoHotKey or other favorite tool to run script from a macro or key press**
 - Enter your notes, use MD syntax for formatting. Enter on a blank line to finish  *For Markdown syntax go [here](https://www.markdownguide.org/basic-syntax)
-- Press enter with no input to cancel note
+- Type qq and press inter to finish note
 - Your notes will be saved to a text file named with the format `yyyy_MM_dd.md` in a subfolder named with the format `yyyy\MMM` under the `$notesfolder` folder
 - You can view your notes with any text editor or Markdown viewer
 

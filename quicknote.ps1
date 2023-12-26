@@ -46,7 +46,7 @@ while (1)
   {
     read-host | Set-Variable r
     Set-Variable note -value ($note+"`n"+$r+"  ")
-    if (!$r) {break}
+    if ($r -eq "qq") {break}
   }
 $note = $note.trim()
 if (!($note))
