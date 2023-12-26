@@ -41,13 +41,16 @@ $time = $date.ToString("hh:mm:ss tt K")
 $notel1 = "`n  ### $time `n"
 #######################
 
-Write-Host "Enter your notes, use MD syntax for formatting.  Enter on a blank line to finish:" -ForegroundColor Green
+#Below While Loop collects terminal input to the variable r, then appends that input to the variable note 
+#preceeded with a new line (provides the linebreak in the output) and follows it with a double space (markdown for simple line break)
+#The loop breaks on a line only containing qq
+Write-Host "Enter your notes, use MD syntax for formatting.  Type qq on the last line to finish:" -ForegroundColor Green
 while (1) 
-  {
-    read-host | Set-Variable r
-    Set-Variable note -value ($note+"`n"+$r+"  ")
-    if (!$r) {break}
-  }
+{
+    $r = read-host
+    $note += "`n" + $r + "  "
+    if ($r -eq "qq") {break}
+}
 $note = $note.trim()
 if (!($note))
   {
